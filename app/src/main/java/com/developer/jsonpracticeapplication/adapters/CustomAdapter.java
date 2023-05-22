@@ -12,10 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.developer.jsonpracticeapplication.R;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
-    ArrayList<String> personNames;
+    ArrayList<JSONObject> personNames;
     ArrayList<String> emailIds;
     ArrayList<String> mobileNumbers;
     Context context;
@@ -40,14 +42,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, int position) {
         // set the data in items
         holder.name.setText(personNames.get(position));
-        holder.email.setText(emailIds.get(position));
-        holder.mobileNo.setText(mobileNumbers.get(position));
+//        holder.email.setText(emailIds.get(position));
+//        holder.mobileNo.setText(mobileNumbers.get(position));
 
         // implement setOnClickListener event on item view.
-        holder.itemView.setOnClickListener(view -> {
-            // display a toast with person name on item click
-            Toast.makeText(context, personNames.get(position), Toast.LENGTH_SHORT).show();
-        });
+//        holder.itemView.setOnClickListener(view -> {
+//            // display a toast with person name on item click
+//            Toast.makeText(context, personNames.get(position), Toast.LENGTH_SHORT).show();
+//        });
 
     }
 

@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.developer.jsonpracticeapplication.adapters.CustomAdapter;
 import com.developer.jsonpracticeapplication.databinding.ActivityJsonLinkBinding;
-import com.developer.jsonpracticeapplication.databinding.ActivityMainBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,7 +20,7 @@ public class JsonLinkActivity extends AppCompatActivity {
     ActivityJsonLinkBinding binding;
 
     // ArrayList for person names, email Id's and mobile numbers
-    ArrayList<String> personNames = new ArrayList<>();
+    ArrayList<JSONObject> personNames = new ArrayList<>();
     ArrayList<String> emailIds = new ArrayList<>();
     ArrayList<String> mobileNumbers = new ArrayList<>();
 
@@ -47,19 +46,23 @@ public class JsonLinkActivity extends AppCompatActivity {
         try {
             JSONObject reader = new JSONObject(loadJSONFromAsset());
             //fetch JSONArray named Users
-            JSONArray userArray =  reader.getJSONArray("users");
+            JSONArray userArray =  reader.getJSONArray("abilities");
 
             //Implement for loop for getting userList Data
             for (int i = 0; i < userArray.length(); i++) {
                 JSONObject userDetail =  userArray.getJSONObject(i);
                 // fetch email and name and store it in arraylist
-                personNames.add(userDetail.getString("name"));
-                personNames.add(userDetail.getString("email"));
-
-                // create a object for getting contact data from JSONObject
-                JSONObject contact = userDetail.getJSONObject("contact");
-                // fetch mobile number and store it in arraylist
-                mobileNumbers.add(contact.getString("mobile"));
+//                personNames.add(userDetail.getString("is_hidden"));
+                personNames.add(userDetail.getJSONObject("ability"));
+//                JSONObject abilityItem = userDetail.getJSONObject("ability");
+//                personNames.add(abilityItem.getString("name"));
+//                personNames.add(userDetail.getString("type"));
+//                personNames.add(userDetail.getString("email"));
+//
+//                // create a object for getting contact data from JSONObject
+//                JSONObject contact = userDetail.getJSONObject("contact");
+//                // fetch mobile number and store it in arraylist
+//                mobileNumbers.add(contact.getString("mobile"));
             }
 
         }catch (JSONException e){
