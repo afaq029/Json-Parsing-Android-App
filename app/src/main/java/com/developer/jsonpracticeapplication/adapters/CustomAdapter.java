@@ -23,7 +23,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     Context context;
 
 
-    public CustomAdapter(Context context, ArrayList<String> personNames, ArrayList<String> emailIds, ArrayList<String> mobileNumbers) {
+    public CustomAdapter(Context context, ArrayList<JSONObject> personNames, ArrayList<String> emailIds, ArrayList<String> mobileNumbers) {
         this.context = context;
         this.personNames = personNames;
         this.emailIds = emailIds;
@@ -41,7 +41,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, int position) {
         // set the data in items
-        holder.name.setText(personNames.get(position));
+        holder.name.setText((CharSequence) personNames.get(position));
 //        holder.email.setText(emailIds.get(position));
 //        holder.mobileNo.setText(mobileNumbers.get(position));
 
